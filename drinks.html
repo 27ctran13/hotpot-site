@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinks - OC & LAU Hotpot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">OC & LAU</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="drinks.html" class="active">Drinks</a></li>
+                <li><a href="hotpot.html">Hotpot Experience</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Title -->
+    <section class="page-title">
+        <h1>Beverages</h1>
+        <p>Refresh your palate with our curated drink selection</p>
+    </section>
+
+    <!-- Drinks Gallery with Hover Modal -->
+    <section class="drinks-gallery">
+        <div class="drink-card" onclick="openModal(this)">
+            <img src="https://images.unsplash.com/photo-1571115200575-9c0f1bff0eb9?w=400&h=500&fit=crop" alt="Green Tea">
+            <h3>Premium Green Tea</h3>
+        </div>
+        <div class="drink-card" onclick="openModal(this)">
+            <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b3f4?w=400&h=500&fit=crop" alt="Mango Juice">
+            <h3>Fresh Mango Juice</h3>
+        </div>
+        <div class="drink-card" onclick="openModal(this)">
+            <img src="https://images.unsplash.com/photo-1585518419759-59bb16397e3f?w=400&h=500&fit=crop" alt="Oolong Tea">
+            <h3>Traditional Oolong Tea</h3>
+        </div>
+        <div class="drink-card" onclick="openModal(this)">
+            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=500&fit=crop" alt="Lychee Beverage">
+            <h3>Exotic Lychee Beverage</h3>
+        </div>
+    </section>
+
+    <!-- Modal Popup -->
+    <div id="drinkModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImg" src="" alt="Drink">
+            <h2 id="modalTitle"></h2>
+            <p id="modalDesc"></p>
+        </div>
+    </div>
+
+    <!-- Footer & Newsletter -->
+    <footer>
+        <div class="footer-content">
+            <div class="newsletter">
+                <h3>Stay Updated</h3>
+                <p>Sign up to receive exclusive notifications and special offers from OC & LAU</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            <div class="footer-info">
+                <p>&copy; 2026 OC & LAU Hotpot. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function openModal(element) {
+            const modal = document.getElementById("drinkModal");
+            const img = element.querySelector("img");
+            const title = element.querySelector("h3");
+            
+            document.getElementById("modalImg").src = img.src;
+            document.getElementById("modalTitle").textContent = title.textContent;
+            document.getElementById("modalDesc").textContent = "A premium beverage selection crafted to complement your hotpot experience.";
+            
+            modal.style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("drinkModal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("drinkModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

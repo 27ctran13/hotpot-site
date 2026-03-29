@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OC & LAU Hotpot - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">OC & LAU</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="drinks.html">Drinks</a></li>
+                <li><a href="hotpot.html">Hotpot Experience</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Carousel -->
+    <section class="hero">
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-slide fade">
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561341?w=1200&h=600&fit=crop" alt="Restaurant Interior">
+                    <div class="carousel-caption">Premium Hotpot Experience</div>
+                </div>
+                <div class="carousel-slide fade">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&h=600&fit=crop" alt="Delicious Food">
+                    <div class="carousel-caption">Fresh, Authentic Ingredients</div>
+                </div>
+            </div>
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="welcome">
+        <h2>Welcome to OC & LAU</h2>
+        <p>Experience the finest hotpot dining with authentic flavors and premium ingredients. Join us for an unforgettable culinary journey.</p>
+    </section>
+
+    <!-- Footer & Newsletter -->
+    <footer>
+        <div class="footer-content">
+            <div class="newsletter">
+                <h3>Stay Updated</h3>
+                <p>Sign up to receive exclusive notifications and special offers from OC & LAU</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            <div class="footer-info">
+                <p>&copy; 2026 OC & LAU Hotpot. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("carousel-slide");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("fade");
+            }
+            slides[slideIndex - 1].classList.add("fade");
+        }
+
+        // Auto-advance carousel
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+    </script>
+</body>
+</html>
