@@ -29,19 +29,19 @@
     <!-- Drinks Gallery with Hover Modal -->
     <section class="drinks-gallery">
         <div class="drink-card" onclick="openModal(this)">
-            <img src="https://images.pexels.com/photos/4974515/pexels-photo-4974515.jpeg?w=400&h=500&fit=crop" alt="Premium Green Tea">
+            <div class="placeholder-image green-tea-placeholder"></div>
             <h3>Premium Green Tea</h3>
         </div>
         <div class="drink-card" onclick="openModal(this)">
-            <img src="https://images.pexels.com/photos/4073099/pexels-photo-4073099.jpeg?w=400&h=500&fit=crop" alt="Fresh Mango Juice">
+            <div class="placeholder-image mango-placeholder"></div>
             <h3>Fresh Mango Juice</h3>
         </div>
         <div class="drink-card" onclick="openModal(this)">
-            <img src="https://images.pexels.com/photos/34964935/pexels-photo-34964935.jpeg?w=400&h=500&fit=crop" alt="Traditional Oolong Tea">
+            <div class="placeholder-image oolong-placeholder"></div>
             <h3>Traditional Oolong Tea</h3>
         </div>
         <div class="drink-card" onclick="openModal(this)">
-            <img src="https://images.pexels.com/photos/13211075/pexels-photo-13211075.jpeg?w=400&h=500&fit=crop" alt="Exotic Lychee Beverage">
+            <div class="placeholder-image lychee-placeholder"></div>
             <h3>Exotic Lychee Beverage</h3>
         </div>
     </section>
@@ -50,7 +50,7 @@
     <div id="drinkModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <img id="modalImg" src="" alt="Drink">
+            <div id="modalImg" class="modal-placeholder"></div>
             <h2 id="modalTitle"></h2>
             <p id="modalDesc"></p>
         </div>
@@ -76,10 +76,11 @@
     <script>
         function openModal(element) {
             const modal = document.getElementById("drinkModal");
-            const img = element.querySelector("img");
+            const placeholder = element.querySelector(".placeholder-image");
             const title = element.querySelector("h3");
             
-            document.getElementById("modalImg").src = img.src;
+            const modalImg = document.getElementById("modalImg");
+            modalImg.className = "modal-placeholder " + placeholder.className.replace("placeholder-image", "").trim();
             document.getElementById("modalTitle").textContent = title.textContent;
             document.getElementById("modalDesc").textContent = "A premium beverage selection crafted to complement your hotpot experience.";
             
