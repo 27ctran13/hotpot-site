@@ -29,19 +29,19 @@
     <!-- Drinks Gallery with Hover Modal -->
     <section class="drinks-gallery">
         <div class="drink-card" onclick="openModal(this)">
-            <div class="placeholder-image green-tea-placeholder"></div>
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzRDQUY1MCIvPjx0ZXh0IHg9IjIwMCIgeT0iMjUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5HcmVlbiBUZWE8L3RleHQ+PC9zdmc+" alt="Premium Green Tea">
             <h3>Premium Green Tea</h3>
         </div>
         <div class="drink-card" onclick="openModal(this)">
-            <div class="placeholder-image mango-placeholder"></div>
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iI0ZGOTgwMCIvPjx0ZXh0IHg9IjIwMCIgeT0iMjUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5NYW5nbyBKdWljZTwvdGV4dD48L3N2Zz4=" alt="Fresh Mango Juice">
             <h3>Fresh Mango Juice</h3>
         </div>
         <div class="drink-card" onclick="openModal(this)">
-            <div class="placeholder-image oolong-placeholder"></div>
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzhENkU2MyIvPjx0ZXh0IHg9IjIwMCIgeT0iMjUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Pb2xvbmcgVGVhPC90ZXh0Pjwvc3ZnPg==" alt="Traditional Oolong Tea">
             <h3>Traditional Oolong Tea</h3>
         </div>
         <div class="drink-card" onclick="openModal(this)">
-            <div class="placeholder-image lychee-placeholder"></div>
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iI0UxRTYzIi8+PHRleHQgeD0iMjAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkx5Y2hlZSBCZXZlcmFnZTwvdGV4dD48L3N2Zz4=" alt="Exotic Lychee Beverage">
             <h3>Exotic Lychee Beverage</h3>
         </div>
     </section>
@@ -50,7 +50,7 @@
     <div id="drinkModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <div id="modalImg" class="modal-placeholder"></div>
+            <img id="modalImg" src="" alt="Drink">
             <h2 id="modalTitle"></h2>
             <p id="modalDesc"></p>
         </div>
@@ -76,11 +76,10 @@
     <script>
         function openModal(element) {
             const modal = document.getElementById("drinkModal");
-            const placeholder = element.querySelector(".placeholder-image");
+            const img = element.querySelector("img");
             const title = element.querySelector("h3");
             
-            const modalImg = document.getElementById("modalImg");
-            modalImg.className = "modal-placeholder " + placeholder.className.replace("placeholder-image", "").trim();
+            document.getElementById("modalImg").src = img.src;
             document.getElementById("modalTitle").textContent = title.textContent;
             document.getElementById("modalDesc").textContent = "A premium beverage selection crafted to complement your hotpot experience.";
             
